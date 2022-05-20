@@ -47,18 +47,28 @@
 */
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/pin_manager.h"
+#include "lcd.h"
 
 /*
                          Main application
  */
+
+void __delay(void);
+
 int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-    
+    LED1_SetLow();
+    LED2_SetLow();
+    LED3_SetLow();
+    LED4_SetLow();
+    lcdInit();
+    lcdCommand(0x80);
+    lcdString("Hello World!");
     while (1)
     {
-        // Add your application code
+        
     }
     return 1; 
 }
@@ -66,3 +76,8 @@ int main(void)
  End of File
 */
 
+void __delay(void){
+    for(short i = 0; i < 500; i++){
+        for(unsigned char j = 0; j < 255; j++);
+    }
+}
