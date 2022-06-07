@@ -86,13 +86,15 @@
 #include "interrupt_manager.h"
 #include "exceptions.h"
 #include "uart1.h"
+#include "adc1.h"
 
 void SYSTEM_Initialize(void)
 {
     PIN_MANAGER_Initialize();
-    CLOCK_Initialize();
     INTERRUPT_Initialize();
+    CLOCK_Initialize();
     UART1_Initialize();
+    ADC1_Initialize();
     INTERRUPT_GlobalEnable();
 }
 

@@ -48,26 +48,39 @@
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/pin_manager.h"
 #include "lcd.h"
+#include "keypad.h"
 
 /*
                          Main application
  */
 
-void __delay(void);
+void __delay1000ms(void);
 
 int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-    LED1_SetLow();
-    LED2_SetLow();
-    LED3_SetLow();
-    LED4_SetLow();
+    LED1_SetHigh();
+    LED2_SetHigh();
+    LED3_SetHigh();
+    LED4_SetHigh();
+    
     lcdInit();
-    lcdCommand(0x80);
-    lcdString("Hello World!");
-    while (1)
-    {
+    lcdCommand(LCD_FIRST_LINE);
+    while (1){
+        if(!isKpPressed(NOTHING)){
+            if(kpRead() == B1) lcdString("B1");
+            else if(kpRead() == B2) lcdString("B2");
+            else if(kpRead() == B3) lcdString("B3");
+            else if(kpRead() == B4) lcdString("B4");
+            else if(kpRead() == B5) lcdString("B5");
+            lcdCommand(LCD_SECOND_LINE);
+            lcdString("foi pressionado");
+        }
+        else lcdString("Vazio!!!");
+        __delay1000ms();
+        lcdCommand(LCD_CLEAR);
+        lcdCommand(LCD_FIRST_LINE);
         
     }
     return 1; 
@@ -76,8 +89,8 @@ int main(void)
  End of File
 */
 
-void __delay(void){
-    for(short i = 0; i < 500; i++){
-        for(unsigned char j = 0; j < 255; j++);
+void __delay1000ms(){
+    for(int i = 0; i < 1000*2; i++){
+        for(short j = 0; j < 265; j++);
     }
 }

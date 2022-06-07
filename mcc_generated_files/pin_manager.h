@@ -1330,6 +1330,188 @@ inline static void LED4_SetValue(bool value)
 #define LED4_SetDigitalOutput()   ( TRISBCLR = (1 << 6) )
 /**
   @Summary
+    Sets the GPIO pin, RC3, high using LATC3.
+
+  @Description
+    Sets the GPIO pin, RC3, high using LATC3.
+
+  @Preconditions
+    The RC3 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RC3 high (1)
+    RW_SetHigh();
+    </code>
+
+*/
+#define RW_SetHigh()          ( LATCSET = (1 << 3) )
+/**
+  @Summary
+    Sets the GPIO pin, RC3, low using LATC3.
+
+  @Description
+    Sets the GPIO pin, RC3, low using LATC3.
+
+  @Preconditions
+    The RC3 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RC3 low (0)
+    RW_SetLow();
+    </code>
+
+*/
+#define RW_SetLow()           ( LATCCLR = (1 << 3) )
+
+/**
+  @Summary
+    Sets a value to the GPIO pin.
+
+  @Description
+    Sets or Resets the GPIO pin, RC3, low or high using LATC3.
+
+  @Preconditions
+    The RC3 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    bool value; : value to be set to the GPIO pin.
+
+  @Example
+    <code>
+    // Set RC3 to low.
+    RW_SetValue(false);
+    </code>
+
+*/
+inline static void RW_SetValue(bool value)
+{
+  if(value)
+  {
+    RW_SetHigh();
+  }
+  else
+  {
+    RW_SetLow();
+  }
+}
+
+/**
+  @Summary
+    Toggles the GPIO pin, RC3, using LATC3.
+
+  @Description
+    Toggles the GPIO pin, RC3, using LATC3.
+
+  @Preconditions
+    The RC3 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RC3
+    RW_Toggle();
+    </code>
+
+*/
+#define RW_Toggle()           ( LATCINV = (1 << 3) )
+/**
+  @Summary
+    Reads the value of the GPIO pin, RC3.
+
+  @Description
+    Reads the value of the GPIO pin, RC3.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RC3
+    postValue = RW_GetValue();
+    </code>
+
+*/
+#define RW_GetValue()         PORTCbits.RC3
+/**
+  @Summary
+    Configures the GPIO pin, RC3, as an input.
+
+  @Description
+    Configures the GPIO pin, RC3, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RC3 as an input
+    RW_SetDigitalInput();
+    </code>
+
+*/
+#define RW_SetDigitalInput()   ( TRISCSET = (1 << 3) )
+/**
+  @Summary
+    Configures the GPIO pin, RC3, as an output.
+
+  @Description
+    Configures the GPIO pin, RC3, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RC3 as an output
+    RW_SetDigitalOutput();
+    </code>
+
+*/
+#define RW_SetDigitalOutput()   ( TRISCCLR = (1 << 3) )
+/**
+  @Summary
     Sets the GPIO pin, RC4, high using LATC4.
 
   @Description
@@ -1893,11 +2075,11 @@ inline static void D5_SetValue(bool value)
   @Example
     <code>
     // Set RC8 high (1)
-    kp_SetHigh();
+    CHANNEL_KP_SetHigh();
     </code>
 
 */
-#define kp_SetHigh()          ( LATCSET = (1 << 8) )
+#define CHANNEL_KP_SetHigh()          ( LATCSET = (1 << 8) )
 /**
   @Summary
     Sets the GPIO pin, RC8, low using LATC8.
@@ -1917,11 +2099,11 @@ inline static void D5_SetValue(bool value)
   @Example
     <code>
     // Set RC8 low (0)
-    kp_SetLow();
+    CHANNEL_KP_SetLow();
     </code>
 
 */
-#define kp_SetLow()           ( LATCCLR = (1 << 8) )
+#define CHANNEL_KP_SetLow()           ( LATCCLR = (1 << 8) )
 
 /**
   @Summary
@@ -1942,19 +2124,19 @@ inline static void D5_SetValue(bool value)
   @Example
     <code>
     // Set RC8 to low.
-    kp_SetValue(false);
+    CHANNEL_KP_SetValue(false);
     </code>
 
 */
-inline static void kp_SetValue(bool value)
+inline static void CHANNEL_KP_SetValue(bool value)
 {
   if(value)
   {
-    kp_SetHigh();
+    CHANNEL_KP_SetHigh();
   }
   else
   {
-    kp_SetLow();
+    CHANNEL_KP_SetLow();
   }
 }
 
@@ -1977,11 +2159,11 @@ inline static void kp_SetValue(bool value)
   @Example
     <code>
     // Toggle RC8
-    kp_Toggle();
+    CHANNEL_KP_Toggle();
     </code>
 
 */
-#define kp_Toggle()           ( LATCINV = (1 << 8) )
+#define CHANNEL_KP_Toggle()           ( LATCINV = (1 << 8) )
 /**
   @Summary
     Reads the value of the GPIO pin, RC8.
@@ -2003,11 +2185,11 @@ inline static void kp_SetValue(bool value)
     uint16_t portValue;
 
     // Read RC8
-    postValue = kp_GetValue();
+    postValue = CHANNEL_KP_GetValue();
     </code>
 
 */
-#define kp_GetValue()         PORTCbits.RC8
+#define CHANNEL_KP_GetValue()         PORTCbits.RC8
 /**
   @Summary
     Configures the GPIO pin, RC8, as an input.
@@ -2027,11 +2209,11 @@ inline static void kp_SetValue(bool value)
   @Example
     <code>
     // Sets the RC8 as an input
-    kp_SetDigitalInput();
+    CHANNEL_KP_SetDigitalInput();
     </code>
 
 */
-#define kp_SetDigitalInput()   ( TRISCSET = (1 << 8) )
+#define CHANNEL_KP_SetDigitalInput()   ( TRISCSET = (1 << 8) )
 /**
   @Summary
     Configures the GPIO pin, RC8, as an output.
@@ -2051,11 +2233,11 @@ inline static void kp_SetValue(bool value)
   @Example
     <code>
     // Sets the RC8 as an output
-    kp_SetDigitalOutput();
+    CHANNEL_KP_SetDigitalOutput();
     </code>
 
 */
-#define kp_SetDigitalOutput()   ( TRISCCLR = (1 << 8) )
+#define CHANNEL_KP_SetDigitalOutput()   ( TRISCCLR = (1 << 8) )
 
 /**
     Section: Function Prototypes

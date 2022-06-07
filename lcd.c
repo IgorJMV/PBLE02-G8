@@ -1,4 +1,6 @@
 #include "mcc_generated_files/pin_manager.h"
+#include "mcc_generated_files/system.h"
+#include "lcd.h"
 
 //funções de bit
 #define BitSet(arg,bit) ((arg) |= (1<<bit))
@@ -75,6 +77,7 @@ void lcdInit() {
     D5_SetDigitalOutput();
     D6_SetDigitalOutput();
     D7_SetDigitalOutput();
+    RW_SetLow();
 
     delayMS(15); //15ms
 
@@ -96,7 +99,7 @@ void lcdInit() {
     lcdCommand(0x06); //modo incremental
     lcdCommand(0x0c); //display e cursor on, com blink
     lcdCommand(0x03); //zera tudo
-    lcdCommand(0x80); //posição inicial
+    lcdCommand(0x80); //posi��o inicial
     lcdCommand(0x01); //limpar display
 }
 

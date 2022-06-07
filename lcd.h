@@ -1,6 +1,10 @@
 #ifndef _LCD_H
 #define _LCD_H
 
+#define LCD_CLEAR 1
+#define LCD_FIRST_LINE 128
+#define LCD_SECOND_LINE 192
+
 void delayMS(unsigned char ms);
 void pulseEnablePin();
 void pushNibble(int value, int rs);
