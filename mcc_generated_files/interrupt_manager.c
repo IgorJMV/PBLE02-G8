@@ -55,4 +55,14 @@ void INTERRUPT_Initialize (void)
     // Enable Multi Vector Configuration
     INTCONbits.MVEC = 1;
     
+    //    MICI: I2C 2 Master
+    //    Priority: 1
+        IPC17bits.I2C2MIP = 1;
+    //    Sub Priority: 0
+        IPC17bits.I2C2MIS = 0;
+    //    SICI: I2C 2 Slave
+    //    Priority: 1
+        IPC17bits.I2C2SIP = 1;
+    //    Sub Priority: 0
+        IPC17bits.I2C2SIS = 0;
 }

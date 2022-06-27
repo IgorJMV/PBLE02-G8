@@ -83,6 +83,7 @@
 #include "pin_manager.h"
 #include "clock.h"
 #include "system.h"
+#include "i2c2.h"
 #include "interrupt_manager.h"
 #include "exceptions.h"
 #include "uart1.h"
@@ -95,6 +96,7 @@ void SYSTEM_Initialize(void)
     CLOCK_Initialize();
     UART1_Initialize();
     ADC1_Initialize();
+    I2C2_Initialize();
     INTERRUPT_GlobalEnable();
 }
 

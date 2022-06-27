@@ -17,9 +17,13 @@
         <itemPath>mcc_generated_files/uart1.h</itemPath>
         <itemPath>mcc_generated_files/adc_module_features.h</itemPath>
         <itemPath>mcc_generated_files/adc1.h</itemPath>
+        <itemPath>mcc_generated_files/i2c2.h</itemPath>
       </logicalFolder>
       <itemPath>lcd.h</itemPath>
       <itemPath>keypad.h</itemPath>
+      <itemPath>memory.h</itemPath>
+      <itemPath>var.h</itemPath>
+      <itemPath>statemachine.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -39,10 +43,13 @@
         <itemPath>mcc_generated_files/clock.c</itemPath>
         <itemPath>mcc_generated_files/uart1.c</itemPath>
         <itemPath>mcc_generated_files/adc1.c</itemPath>
+        <itemPath>mcc_generated_files/i2c2.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>lcd.c</itemPath>
       <itemPath>keypad.c</itemPath>
+      <itemPath>memory.c</itemPath>
+      <itemPath>var.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

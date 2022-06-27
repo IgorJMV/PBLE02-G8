@@ -49,6 +49,7 @@
 #include "mcc_generated_files/pin_manager.h"
 #include "lcd.h"
 #include "keypad.h"
+#include "memory.h"
 
 /*
                          Main application
@@ -67,20 +68,17 @@ int main(void)
     
     lcdInit();
     lcdCommand(LCD_FIRST_LINE);
+    
+    uint8_t ppp[1];
+    ppp[0] = 5;
+    writeMem(0x00, ppp, 1);
+//    uint8_t val[1];
+//    readMem(0x00, val, 1);
+    lcdString("val = ");
+//    lcdInt(val[0]);
+//    __delay1000ms();
+    
     while (1){
-        if(!isKpPressed(NOTHING)){
-            if(kpRead() == B1) lcdString("B1");
-            else if(kpRead() == B2) lcdString("B2");
-            else if(kpRead() == B3) lcdString("B3");
-            else if(kpRead() == B4) lcdString("B4");
-            else if(kpRead() == B5) lcdString("B5");
-            lcdCommand(LCD_SECOND_LINE);
-            lcdString("foi pressionado");
-        }
-        else lcdString("Vazio!!!");
-        __delay1000ms();
-        lcdCommand(LCD_CLEAR);
-        lcdCommand(LCD_FIRST_LINE);
         
     }
     return 1; 
