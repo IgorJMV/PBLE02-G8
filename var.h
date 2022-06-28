@@ -8,6 +8,8 @@
 #ifndef VAR_H
 #define	VAR_H
 
+#include "stdint.h"
+
     uint8_t getState(void);
     void setState(uint8_t state);
     
