@@ -121,7 +121,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ADC1" name="AN8"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ADC1" name="AN9"/>
@@ -3929,7 +3929,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RB13"/>
-         <value/>
+         <value>CHANNEL_POT</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RB14"/>
@@ -4357,7 +4357,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RB13"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RB14"/>
@@ -11111,7 +11111,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.h</file>
-         <hash>a00f1d1155d7cb652581171d205cd3849abccbf8f64a636cd4cbbedbe74cd09d</hash>
+         <hash>cacf8183f40edbb9e52cf706a8b90f7696adb23f63da7ae856d48e4679988b25</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\exceptions.h</file>
@@ -11122,12 +11122,12 @@
          <hash>aa8520d39101c5292e47c3dede814ae1adc4966c96a86e1effa5195f72a01360</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\exceptions.c</file>
-         <hash>d33f2f0d597e263dfa9d7a91fef9664dff59931aefaaf78433c56af7301c181b</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\uart1.c</file>
          <hash>c84e49c4bec96695fb7ec797a79848d288c436403334a261299a68893e554e51</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\exceptions.c</file>
+         <hash>d33f2f0d597e263dfa9d7a91fef9664dff59931aefaaf78433c56af7301c181b</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\i2c2.c</file>
@@ -11138,20 +11138,20 @@
          <hash>689be938db92634747775cd454ee83c7106566cd1bb1963975c1fd50f1117554</hash>
       </entry>
       <entry>
-         <file>main.c</file>
-         <hash>de80dfa880a348ce8a280ae032893b0a5932fe9fb3fa35de76b6c16a082bfe9a</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\adc1.c</file>
          <hash>41a855392264cf6f747bf057cf80c42e11ce451d56ead6c9b5159cc813e48fd1</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\i2c2.h</file>
-         <hash>a82cdc61dfc8442e12114100c434b8116f1fcd237bf2fe95d11d0c51bdb41262</hash>
+         <file>main.c</file>
+         <hash>de80dfa880a348ce8a280ae032893b0a5932fe9fb3fa35de76b6c16a082bfe9a</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.h</file>
-         <hash>578152516f80e79c573efcc2fb115afae160b9a77cf5111f256d09276313b4db</hash>
+         <hash>c2908caa82a3d6cdae7ce342c2a3d635919071f1487f4d07df5a55f76fb8c44c</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\i2c2.h</file>
+         <hash>a82cdc61dfc8442e12114100c434b8116f1fcd237bf2fe95d11d0c51bdb41262</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\adc_module_features.h</file>
@@ -11167,7 +11167,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\system.c</file>
-         <hash>6846bbb4fdee4a5d5dd3cc9fb03fd9abbc7fb089702c1a77b56a6e21fd8aab1c</hash>
+         <hash>759137bc1f447291c4b9acdffc4c390710f9d216cd4532b73a4a9a675a276742</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\clock.h</file>
@@ -11175,7 +11175,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\adc1.h</file>
-         <hash>8b4c3f78071015fdee49faf7d0ce1368716d99b4d86aab0fabd3fc56d82e3099</hash>
+         <hash>0b5ceada839e1e95b7462e288b1e15523aee375db55ab2af6b3829627cb0de55</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\interrupt_manager.c</file>

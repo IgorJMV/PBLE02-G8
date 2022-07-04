@@ -50,6 +50,8 @@
 #include "lcd.h"
 #include "keypad.h"
 #include "memory.h"
+#include "adc.h"
+#include "menu.h"
 
 /*
                          Main application
@@ -66,23 +68,7 @@ int main(void)
     LED3_SetHigh();
     LED4_SetHigh();
     
-    lcdInit();
-    lcdCommand(LCD_FIRST_LINE);
-    
-    uint8_t ppp[1];
-    ppp[0] = 147;
-    writeMem(0x00, ppp, 1);
-    int i;
-    for (i = 0; i < 1000; i++) {
-        
-
-    }
-
-    uint8_t val[1];
-    readMem(0x00, val, 1);
-    lcdString("val = ");
-    lcdInt(val[0]);
-//    __delay1000ms();
+    updateMenu(ALARM1);
     
     while (1){
         

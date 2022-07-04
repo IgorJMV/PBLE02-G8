@@ -36,7 +36,7 @@ uint16_t getAlarmHigh1(void){
 
 void setAlarmHigh1(uint16_t alarmHigh1){
     uint8_t palarmHigh1[2];
-    palarmHigh1[0] = alarmHigh1&0xFF;
+    palarmHigh1[0] = alarmHigh1 & 0xFF;
     palarmHigh1[1] = alarmHigh1 >> 8;
     writeMem(ALARM_HIGH_1, palarmHigh1, 2);
 }

@@ -24,6 +24,8 @@
       <itemPath>memory.h</itemPath>
       <itemPath>var.h</itemPath>
       <itemPath>statemachine.h</itemPath>
+      <itemPath>adc.h</itemPath>
+      <itemPath>menu.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -50,6 +52,8 @@
       <itemPath>keypad.c</itemPath>
       <itemPath>memory.c</itemPath>
       <itemPath>var.c</itemPath>
+      <itemPath>adc.c</itemPath>
+      <itemPath>menu.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

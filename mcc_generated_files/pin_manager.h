@@ -1148,6 +1148,188 @@ inline static void LED3_SetValue(bool value)
 #define LED3_SetDigitalOutput()   ( TRISBCLR = (1 << 11) )
 /**
   @Summary
+    Sets the GPIO pin, RB13, high using LATB13.
+
+  @Description
+    Sets the GPIO pin, RB13, high using LATB13.
+
+  @Preconditions
+    The RB13 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RB13 high (1)
+    CHANNEL_POT_SetHigh();
+    </code>
+
+*/
+#define CHANNEL_POT_SetHigh()          ( LATBSET = (1 << 13) )
+/**
+  @Summary
+    Sets the GPIO pin, RB13, low using LATB13.
+
+  @Description
+    Sets the GPIO pin, RB13, low using LATB13.
+
+  @Preconditions
+    The RB13 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RB13 low (0)
+    CHANNEL_POT_SetLow();
+    </code>
+
+*/
+#define CHANNEL_POT_SetLow()           ( LATBCLR = (1 << 13) )
+
+/**
+  @Summary
+    Sets a value to the GPIO pin.
+
+  @Description
+    Sets or Resets the GPIO pin, RB13, low or high using LATB13.
+
+  @Preconditions
+    The RB13 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    bool value; : value to be set to the GPIO pin.
+
+  @Example
+    <code>
+    // Set RB13 to low.
+    CHANNEL_POT_SetValue(false);
+    </code>
+
+*/
+inline static void CHANNEL_POT_SetValue(bool value)
+{
+  if(value)
+  {
+    CHANNEL_POT_SetHigh();
+  }
+  else
+  {
+    CHANNEL_POT_SetLow();
+  }
+}
+
+/**
+  @Summary
+    Toggles the GPIO pin, RB13, using LATB13.
+
+  @Description
+    Toggles the GPIO pin, RB13, using LATB13.
+
+  @Preconditions
+    The RB13 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RB13
+    CHANNEL_POT_Toggle();
+    </code>
+
+*/
+#define CHANNEL_POT_Toggle()           ( LATBINV = (1 << 13) )
+/**
+  @Summary
+    Reads the value of the GPIO pin, RB13.
+
+  @Description
+    Reads the value of the GPIO pin, RB13.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RB13
+    postValue = CHANNEL_POT_GetValue();
+    </code>
+
+*/
+#define CHANNEL_POT_GetValue()         PORTBbits.RB13
+/**
+  @Summary
+    Configures the GPIO pin, RB13, as an input.
+
+  @Description
+    Configures the GPIO pin, RB13, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RB13 as an input
+    CHANNEL_POT_SetDigitalInput();
+    </code>
+
+*/
+#define CHANNEL_POT_SetDigitalInput()   ( TRISBSET = (1 << 13) )
+/**
+  @Summary
+    Configures the GPIO pin, RB13, as an output.
+
+  @Description
+    Configures the GPIO pin, RB13, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RB13 as an output
+    CHANNEL_POT_SetDigitalOutput();
+    </code>
+
+*/
+#define CHANNEL_POT_SetDigitalOutput()   ( TRISBCLR = (1 << 13) )
+/**
+  @Summary
     Sets the GPIO pin, RB6, high using LATB6.
 
   @Description
