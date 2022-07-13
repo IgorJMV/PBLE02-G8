@@ -52,6 +52,7 @@
 #include "memory.h"
 #include "adc.h"
 #include "menu.h"
+#include "pwm.h"
 
 /*
                          Main application
@@ -68,10 +69,13 @@ int main(void)
     LED3_SetHigh();
     LED4_SetHigh();
     
-    updateMenu(ALARM1);
+    lcdInit();
+    PWM_init(1);
+    
     
     while (1){
-        
+        updateMenu(ALARM1);
+        __delay1000ms();
     }
     return 1; 
 }
