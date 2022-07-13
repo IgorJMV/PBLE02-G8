@@ -24,6 +24,12 @@
 
     uint16_t getAlarmLow2(void);
     void setAlarmLow1(uint16_t alarmLow2);
+    
+    uint32_t getTimer(void);
+    void setTimer(uint32_t timer);
+    
+    uint8_t getLanguage(void);
+    void setLanguage(uint8_t language);
 
 #endif	/* VAR_H */
 
