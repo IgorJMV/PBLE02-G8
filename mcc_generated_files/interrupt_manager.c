@@ -65,4 +65,9 @@ void INTERRUPT_Initialize (void)
         IPC17bits.I2C2SIP = 1;
     //    Sub Priority: 0
         IPC17bits.I2C2SIS = 0;
+    //    TI: Timer 1
+    //    Priority: 1
+        IPC4bits.T1IP = 1;
+    //    Sub Priority: 0
+        IPC4bits.T1IS = 0;
 }

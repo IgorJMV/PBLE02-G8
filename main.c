@@ -53,31 +53,42 @@
 #include "adc.h"
 #include "menu.h"
 #include "pwm.h"
+#include "mcc_generated_files/tmr1.h"
+#include "statemachine.h"
 
 /*
                          Main application
  */
 
+static uint32_t millis = 0;
+
+kpType button = NOTHING;
+
 void __delay1000ms(void);
+void *timer1(void);
+
 
 int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
+    TMR1_SetInterruptHandler(timer1);
+    
     LED1_SetHigh();
     LED2_SetHigh();
     LED3_SetHigh();
     LED4_SetHigh();
     
-    lcdInit();
-    PWM_init(1);
+    statemachine_init();
+    statemachine_update(0, millis);
     
     
     while (1){
-        lcdInt(readDifferential());
-        __delay1000ms();
-        lcdCommand(LCD_CLEAR);
-        lcdCommand(LCD_FIRST_LINE);
+        button = kpRead();
+        if(button != NOTHING){
+            statemachine_update(button, millis);
+            updateLimits();
+        }
     }
     return 1; 
 }
@@ -89,4 +100,8 @@ void __delay1000ms(){
     for(int i = 0; i < 1000*2; i++){
         for(short j = 0; j < 265; j++);
     }
+}
+
+void *timer1(void){
+    millis++;
 }

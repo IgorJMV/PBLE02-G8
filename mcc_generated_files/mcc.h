@@ -51,12 +51,13 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "adc1.h"
+#include "tmr1.h"
 #include "uart1.h"
-#include "watchdog.h"
 #include "interrupt_manager.h"
 #include "exceptions.h"
+#include "watchdog.h"
 #include "i2c2.h"
+#include "adc1.h"
 
 #warning "This file will be removed in future MCC releases. Use system.h instead."
 
