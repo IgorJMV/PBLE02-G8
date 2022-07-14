@@ -11,8 +11,9 @@
 #include <stdint.h>
 #include "statemachine.h"
 
-void updateMenu(uint8_t state);
-void updateData(char state);
+void updateMenu(uint32_t millis);
+void updateData(uint32_t millis);
+void updateLimits(void);
 
 #endif	/* MENU_H */
 

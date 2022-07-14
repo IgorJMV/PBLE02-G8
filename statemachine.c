@@ -1,6 +1,7 @@
 #include "statemachine.h"
 #include "var.h"
 #include "lcd.h"
+#include "menu.h"
 
 void statemachine_init(void){
     uint8_t state = getState();

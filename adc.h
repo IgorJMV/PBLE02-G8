@@ -12,6 +12,7 @@
 #include <stdint.h>
 
 uint16_t readPot(void);
+int readDifferential(void);
 
 #endif	/* ADC_H */
 

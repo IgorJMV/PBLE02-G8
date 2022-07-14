@@ -74,8 +74,10 @@ int main(void)
     
     
     while (1){
-        updateMenu(ALARM1);
+        lcdInt(readDifferential());
         __delay1000ms();
+        lcdCommand(LCD_CLEAR);
+        lcdCommand(LCD_FIRST_LINE);
     }
     return 1; 
 }

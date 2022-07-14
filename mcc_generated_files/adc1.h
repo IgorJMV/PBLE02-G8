@@ -91,6 +91,8 @@
 typedef enum 
 {
     CHANNEL_POT,//Channel Name:AN8   Assigned to:Shared Channel
+    CHANNEL_B,//Channel Name:AN12   Assigned to:Shared Channel
+    CHANNEL_A,//Channel Name:AN13   Assigned to:Shared Channel
     CHANNEL_KP,//Channel Name:AN14   Assigned to:Shared Channel
     CHANNEL_VDD_core,//Channel Name:VDD core   Assigned to:Shared Channel
     CHANNEL_VBG,//Channel Name:VBG   Assigned to:Shared Channel
@@ -341,6 +343,12 @@ inline static void ADC1_ChannelSelect( ADC1_CHANNEL channel )
     {
         case CHANNEL_POT:
                 AD1CHSbits.CH0SA= 0x8;
+                break;
+        case CHANNEL_B:
+                AD1CHSbits.CH0SA= 0xC;
+                break;
+        case CHANNEL_A:
+                AD1CHSbits.CH0SA= 0xD;
                 break;
         case CHANNEL_KP:
                 AD1CHSbits.CH0SA= 0xE;

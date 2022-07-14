@@ -1512,6 +1512,370 @@ inline static void LED4_SetValue(bool value)
 #define LED4_SetDigitalOutput()   ( TRISBCLR = (1 << 6) )
 /**
   @Summary
+    Sets the GPIO pin, RC0, high using LATC0.
+
+  @Description
+    Sets the GPIO pin, RC0, high using LATC0.
+
+  @Preconditions
+    The RC0 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RC0 high (1)
+    CHANNEL_B_SetHigh();
+    </code>
+
+*/
+#define CHANNEL_B_SetHigh()          ( LATCSET = (1 << 0) )
+/**
+  @Summary
+    Sets the GPIO pin, RC0, low using LATC0.
+
+  @Description
+    Sets the GPIO pin, RC0, low using LATC0.
+
+  @Preconditions
+    The RC0 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RC0 low (0)
+    CHANNEL_B_SetLow();
+    </code>
+
+*/
+#define CHANNEL_B_SetLow()           ( LATCCLR = (1 << 0) )
+
+/**
+  @Summary
+    Sets a value to the GPIO pin.
+
+  @Description
+    Sets or Resets the GPIO pin, RC0, low or high using LATC0.
+
+  @Preconditions
+    The RC0 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    bool value; : value to be set to the GPIO pin.
+
+  @Example
+    <code>
+    // Set RC0 to low.
+    CHANNEL_B_SetValue(false);
+    </code>
+
+*/
+inline static void CHANNEL_B_SetValue(bool value)
+{
+  if(value)
+  {
+    CHANNEL_B_SetHigh();
+  }
+  else
+  {
+    CHANNEL_B_SetLow();
+  }
+}
+
+/**
+  @Summary
+    Toggles the GPIO pin, RC0, using LATC0.
+
+  @Description
+    Toggles the GPIO pin, RC0, using LATC0.
+
+  @Preconditions
+    The RC0 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RC0
+    CHANNEL_B_Toggle();
+    </code>
+
+*/
+#define CHANNEL_B_Toggle()           ( LATCINV = (1 << 0) )
+/**
+  @Summary
+    Reads the value of the GPIO pin, RC0.
+
+  @Description
+    Reads the value of the GPIO pin, RC0.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RC0
+    postValue = CHANNEL_B_GetValue();
+    </code>
+
+*/
+#define CHANNEL_B_GetValue()         PORTCbits.RC0
+/**
+  @Summary
+    Configures the GPIO pin, RC0, as an input.
+
+  @Description
+    Configures the GPIO pin, RC0, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RC0 as an input
+    CHANNEL_B_SetDigitalInput();
+    </code>
+
+*/
+#define CHANNEL_B_SetDigitalInput()   ( TRISCSET = (1 << 0) )
+/**
+  @Summary
+    Configures the GPIO pin, RC0, as an output.
+
+  @Description
+    Configures the GPIO pin, RC0, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RC0 as an output
+    CHANNEL_B_SetDigitalOutput();
+    </code>
+
+*/
+#define CHANNEL_B_SetDigitalOutput()   ( TRISCCLR = (1 << 0) )
+/**
+  @Summary
+    Sets the GPIO pin, RC1, high using LATC1.
+
+  @Description
+    Sets the GPIO pin, RC1, high using LATC1.
+
+  @Preconditions
+    The RC1 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RC1 high (1)
+    CHANNEL_A_SetHigh();
+    </code>
+
+*/
+#define CHANNEL_A_SetHigh()          ( LATCSET = (1 << 1) )
+/**
+  @Summary
+    Sets the GPIO pin, RC1, low using LATC1.
+
+  @Description
+    Sets the GPIO pin, RC1, low using LATC1.
+
+  @Preconditions
+    The RC1 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RC1 low (0)
+    CHANNEL_A_SetLow();
+    </code>
+
+*/
+#define CHANNEL_A_SetLow()           ( LATCCLR = (1 << 1) )
+
+/**
+  @Summary
+    Sets a value to the GPIO pin.
+
+  @Description
+    Sets or Resets the GPIO pin, RC1, low or high using LATC1.
+
+  @Preconditions
+    The RC1 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    bool value; : value to be set to the GPIO pin.
+
+  @Example
+    <code>
+    // Set RC1 to low.
+    CHANNEL_A_SetValue(false);
+    </code>
+
+*/
+inline static void CHANNEL_A_SetValue(bool value)
+{
+  if(value)
+  {
+    CHANNEL_A_SetHigh();
+  }
+  else
+  {
+    CHANNEL_A_SetLow();
+  }
+}
+
+/**
+  @Summary
+    Toggles the GPIO pin, RC1, using LATC1.
+
+  @Description
+    Toggles the GPIO pin, RC1, using LATC1.
+
+  @Preconditions
+    The RC1 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RC1
+    CHANNEL_A_Toggle();
+    </code>
+
+*/
+#define CHANNEL_A_Toggle()           ( LATCINV = (1 << 1) )
+/**
+  @Summary
+    Reads the value of the GPIO pin, RC1.
+
+  @Description
+    Reads the value of the GPIO pin, RC1.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RC1
+    postValue = CHANNEL_A_GetValue();
+    </code>
+
+*/
+#define CHANNEL_A_GetValue()         PORTCbits.RC1
+/**
+  @Summary
+    Configures the GPIO pin, RC1, as an input.
+
+  @Description
+    Configures the GPIO pin, RC1, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RC1 as an input
+    CHANNEL_A_SetDigitalInput();
+    </code>
+
+*/
+#define CHANNEL_A_SetDigitalInput()   ( TRISCSET = (1 << 1) )
+/**
+  @Summary
+    Configures the GPIO pin, RC1, as an output.
+
+  @Description
+    Configures the GPIO pin, RC1, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RC1 as an output
+    CHANNEL_A_SetDigitalOutput();
+    </code>
+
+*/
+#define CHANNEL_A_SetDigitalOutput()   ( TRISCCLR = (1 << 1) )
+/**
+  @Summary
     Sets the GPIO pin, RC3, high using LATC3.
 
   @Description
