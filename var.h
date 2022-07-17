@@ -8,7 +8,7 @@
 #ifndef VAR_H
 #define	VAR_H
 
-#include "stdint.h"
+#include <stdint.h>
 
     uint8_t getState(void);
     void setState(uint8_t state);
@@ -20,10 +20,10 @@
     void setAlarmLow1(uint16_t alarmLow1);
 
     uint16_t getAlarmHigh2(void);
-    void setAlarmHigh1(uint16_t alarmHigh2);
+    void setAlarmHigh2(uint16_t alarmHigh2);
 
     uint16_t getAlarmLow2(void);
-    void setAlarmLow1(uint16_t alarmLow2);
+    void setAlarmLow2(uint16_t alarmLow2);
     
     uint32_t getTimer(void);
     void setTimer(uint32_t timer);

@@ -8,7 +8,6 @@
 #ifndef SERIAL_H
 #define	SERIAL_H
 
-#include "mcc_generated_files/system.h"
 #include <stdint.h>
 
 void serialUpdate(uint32_t millis);

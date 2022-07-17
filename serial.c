@@ -5,6 +5,7 @@
 #include "statemachine.h"
 #include "mcc_generated_files/uart1.h"
 
+#define BitRead(value, bit) (((value) >> (bit)) & 0x01)
 #define startCommand '$'
 #define commandSize 8
 
@@ -40,7 +41,8 @@ void serialUpdate(uint32_t millis) {
     char read[commandSize];
 
     if (UART1_IsRxReady())
-        delay_ms(10);
+        for (unsigned long i = 0; i < 10; i++)
+            for (volatile unsigned int l = 0; l < 787; l++);
 
     while (UART1_IsRxReady()) {
         if (index < commandSize)
@@ -107,7 +109,7 @@ void serialAlarm(uint8_t a, uint32_t millis) {
 
     while (!UART1_IsTxReady());
 
-    if (bitRead(a, 0) != bitRead(lstAS, 0) && bitRead(a, 0)) {
+    if (BitRead(a, 0) != BitRead(lstAS, 0) && BitRead(a, 0)) {
         uint8_t i = 0;
         while (msgAlarm[0][l][i] != 0) {
             UART1_Write(msgAlarm[0][l][i]);
@@ -120,7 +122,7 @@ void serialAlarm(uint8_t a, uint32_t millis) {
         UART1_Write('\n');
     }
 
-    if (bitRead(a, 1) != bitRead(lstAS, 1) && bitRead(a, 1)) {
+    if (BitRead(a, 1) != BitRead(lstAS, 1) && BitRead(a, 1)) {
         uint8_t i = 0;
         while (msgAlarm[1][l][i] != 0) {
             UART1_Write(msgAlarm[1][l][i]);
@@ -133,7 +135,7 @@ void serialAlarm(uint8_t a, uint32_t millis) {
         UART1_Write('\n');
     }
 
-    if (bitRead(a, 2) != bitRead(lstAS, 2) && bitRead(a, 2)) {
+    if (BitRead(a, 2) != BitRead(lstAS, 2) && BitRead(a, 2)) {
         uint8_t i = 0;
         while (msgAlarm[2][l][i] != 0) {
             UART1_Write(msgAlarm[2][l][i]);
@@ -146,7 +148,7 @@ void serialAlarm(uint8_t a, uint32_t millis) {
         UART1_Write('\n');
     }
 
-    if (bitRead(a, 3) != bitRead(lstAS, 3) && bitRead(a, 3)) {
+    if (BitRead(a, 3) != BitRead(lstAS, 3) && BitRead(a, 3)) {
         uint8_t i = 0;
         while (msgAlarm[3][l][i] != 0) {
             UART1_Write(msgAlarm[3][l][i]);
@@ -159,7 +161,7 @@ void serialAlarm(uint8_t a, uint32_t millis) {
         UART1_Write('\n');
     }
 
-    if (bitRead(a, 4) != bitRead(lstAS, 4) && bitRead(a, 4)) {
+    if (BitRead(a, 4) != BitRead(lstAS, 4) && BitRead(a, 4)) {
         uint8_t i = 0;
         while (msgAlarm[4][l][i] != 0) {
             UART1_Write(msgAlarm[4][l][i]);

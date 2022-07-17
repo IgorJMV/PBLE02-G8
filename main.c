@@ -55,18 +55,24 @@
 #include "pwm.h"
 #include "mcc_generated_files/tmr1.h"
 #include "statemachine.h"
+#include "alarm.h"
+#include "serial.h"
 
 /*
                          Main application
  */
 
+#define Alarm_Period 150
+
+uint32_t lastTime = 0;
+uint32_t lastAlarm = 0;
+uint8_t lastAlarmStatus = 0;
+
 static uint32_t millis = 0;
 
 kpType button = NOTHING;
 
-void __delay1000ms(void);
 void *timer1(void);
-
 
 int main(void)
 {
@@ -79,15 +85,51 @@ int main(void)
     LED3_SetHigh();
     LED4_SetHigh();
     
+    alarmsInit();
     statemachine_init();
     statemachine_update(0, millis);
     
     
     while (1){
+        serialUpdate(millis);
+        
         button = kpRead();
         if(button != NOTHING){
             statemachine_update(button, millis);
             updateLimits();
+        }
+        
+        if(millis - lastAlarm >= Alarm_Period){
+            lastAlarm = millis;
+            uint8_t alarmStatus = alarmsStatusUpdate(millis);
+            if(lastAlarm != alarmStatus){
+                serialAlarm(alarmStatus, millis);
+                lastAlarmStatus = alarmStatus;
+                
+                if((((alarmStatus) >> (0)) & 0x01))
+                    LED1_SetLow();
+                else
+                    LED1_SetHigh();
+                
+                if((((alarmStatus) >> (1)) & 0x01))
+                    LED2_SetLow();
+                else
+                    LED2_SetHigh();
+                
+                if((((alarmStatus) >> (2)) & 0x01))
+                    LED3_SetLow();
+                else
+                    LED3_SetHigh();
+                
+                if((((alarmStatus) >> (3)) & 0x01))
+                    LED4_SetLow();
+                else
+                    LED4_SetHigh();
+            }
+        }
+        if(millis - lastTime >= 200){
+            lastTime = millis;
+            updateData(millis);
         }
     }
     return 1; 
@@ -95,12 +137,6 @@ int main(void)
 /**
  End of File
 */
-
-void __delay1000ms(){
-    for(int i = 0; i < 1000*2; i++){
-        for(short j = 0; j < 265; j++);
-    }
-}
 
 void *timer1(void){
     millis++;
