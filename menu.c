@@ -176,8 +176,10 @@ void updateData(uint32_t millis) {
 
         case LANGUAGE:
             lcdCommand(LCD_FIRST_LINE);
-            if(!getLanguage()) lcdString("   Portugues");
-            else lcdString("    English");
+            if(!getLanguage()) lcdString("<  Portugues   >");
+            else lcdString("<   English    >");
+            lcdCommand(LCD_SECOND_LINE);
+            lcdString("                ");
             break;
     }
 }

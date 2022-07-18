@@ -2,7 +2,7 @@
 #include "memory.h"
 #include "lcd.h"
 
-#define STATE_ADDR 0x00
+#define STATE_ADDR 0x15
 #define TIMER_ADDR 0x09
 #define LANGUAGE_ADDR 0x0D
 #define ALARM_HIGH_1 0x01

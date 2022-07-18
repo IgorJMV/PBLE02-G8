@@ -87,7 +87,7 @@ int main(void)
     
     alarmsInit();
     statemachine_init();
-    statemachine_update(0, millis);
+    statemachine_update(NOTHING, millis);
     
     
     while (1){
